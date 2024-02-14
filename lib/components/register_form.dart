@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assigment09/app_routes.dart';
 import 'package:flutter_assigment09/components/custom_buttom.dart';
 import 'package:flutter_assigment09/components/custom_textfield.dart';
 import 'package:flutter_assigment09/utils/logger.dart';
 
-class LoginForm extends StatelessWidget {
-  LoginForm({super.key});
+class RegisterForm extends StatelessWidget {
+  RegisterForm({super.key});
 
   final _formKeyLogin = GlobalKey<FormState>();
 
@@ -42,17 +41,8 @@ class LoginForm extends StatelessWidget {
             width: double.infinity,
             height: 45.0,
             child: customButtom(
-              labelText: "Login",
-              onPressd: () => handleLogin(context),
-            ),
-          ),
-          const SizedBox(height: 10.0),
-          SizedBox(
-            width: double.infinity,
-            height: 45.0,
-            child: customButtom(
-              labelText: "Register",
-              onPressd: () => Navigator.pushNamed(context, AppRouter.register),
+              labelText: "Create Account",
+              onPressd: () => handleSubmit(context),
             ),
           )
         ],
@@ -60,14 +50,8 @@ class LoginForm extends StatelessWidget {
     );
   }
 
-  void handleLogin(BuildContext context) {
-    logger.f(_passwordController.text);
+  handleSubmit(BuildContext context) {
     logger.f(_usernameController.text);
-    // final authBloc = context.read<LoginBloc>();
-    // final user = User(
-    //   username: _usernameController.text,
-    //   password: _passwordController.text,
-    // );
-    // authBloc.add(LoginEventLocal(user));
+    logger.f(_passwordController.text);
   }
 }
